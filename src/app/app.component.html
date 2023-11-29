@@ -1,0 +1,41 @@
+
+<div class="container">
+  <h1>Bienvenido a tu administrador de tareas.</h1>
+    <hr>
+  <div>
+    
+    <input size="40" placeholder="Escriba una tarea para agregar a la lista" [(ngModel)]="tareaIngresada" (keypress)="comprueba($event)" />
+
+    <div>
+        <button class="btn btn-primary mt-3" (click)="agregarTarea()">Agregar</button>
+    </div>
+    <hr/>
+    <h3>Tareas Pendientes</h3>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between" *ngFor="let tarea of tareas;let i = index">
+            
+            <span class="col-8">{{ tarea }}</span>
+            
+            <div class="d-flex col-4 " >
+                <button class="btn btn-sm btn-success col-8" (click)="completarTarea(tarea,i)">Completada</button>
+                <span class="col-1"></span>
+                <button class="btn btn-sm btn-danger col-3" (click)="eliminarTarea(i)" >X</button>
+                <span class="col-1"></span>
+            </div>
+            </li>
+        </ul>
+        <div class="alert alert-success" *ngIf="this.tareas.length<=0">
+            <h5>No hay tareas por hacer.</h5>
+        </div>
+    </div>
+
+  </div>
+
+  <app-tareas-completadas [tareasCompletadas]="tareasComp"></app-tareas-completadas>
+
+</div>
+
+
+
+

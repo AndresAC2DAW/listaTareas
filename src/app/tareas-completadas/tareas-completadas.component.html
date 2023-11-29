@@ -1,0 +1,26 @@
+
+<div>
+    
+
+    <hr/>
+    <h3>Tareas Completadas</h3>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between" *ngFor="let tarea of tareasCompletadas;let i = index">
+            
+            <span class="col-8">| {{ tarea }}</span>
+            
+            <div class="d-flex col-4 " >
+                <span class="col-8"></span>
+                <span class="col-1"></span>
+                <button class="btn btn-sm btn-danger col-3" (click)="eliminarTarea(i)" >X</button>
+                <span class="col-1"></span>
+            </div>
+            </li>
+        </ul>
+        <div class="alert alert-success" *ngIf="this.tareasCompletadas.length<=0">
+            <h5>No hay tareas Completadas.</h5>
+        </div>
+    </div>
+
+</div>
